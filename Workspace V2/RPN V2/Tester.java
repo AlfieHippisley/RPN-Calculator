@@ -1,6 +1,13 @@
+/**
+ * Tester class for running tests on the other classes
+ * 
+ * @author Alfie Hippisley
+ * @version 28/01/2018
+ */
 
 public class Tester {
 	
+	// Instance Variables
 	private Stack stackOne;
 	private RPNCalculator rpn1;
 	
@@ -35,36 +42,47 @@ public class Tester {
 	
 	public void automatedStackTest() {
 		
-		
+		// Add 1 , display the addition
 		stackOne.push(1);
 		stackOne.displayStack();
 		
+		// Add 2 , display the addition 
 		stackOne.push(2);
 		stackOne.displayStack();
 		
+		// Add 3 , display the addition
 		stackOne.push(3);
 		stackOne.displayStack();
 		
+		// Check empty stack detection
 		stackOne.isStackEmpty();
 		
-		stackOne.displayStack();
-		stackOne.pop();
-		stackOne.displayStack();
-		stackOne.pop();
+		// Remove 3 , display the removal
 		stackOne.displayStack();
 		stackOne.pop();
 		
+		// Remove 2 , display the removal
+		stackOne.displayStack();
+		stackOne.pop();
+	
+		// Remove 1 , display the removal
+		stackOne.displayStack();
+		stackOne.pop();
+		
+		// Check empty stack detection
 		stackOne.isStackEmpty();	
 	}
 	
 	/**
-	 * Test that the rpn calculator works as expected
+	 * Test that the RPN calculator works as expected
 	 * 
 	 * @param none
 	 * @return none
 	 */
 	
 	public void automatedRPNTest() {
+		
+		// Run the RPN tests
 		rpn1.initialiseStack();
 		rpn1.processString();
 		rpn1.displayStack();
@@ -76,12 +94,11 @@ public class Tester {
 	 * @param args
 	 */
 
-	public static void main(String[] args) {
-		Tester test = new Tester();
+	//public static void main(String[] args) {
+	//	Tester test = new Tester();
 		
-		test.initaliseRPNCalc();
-		test.automatedRPNTest();
+	//	test.initaliseRPNCalc();
+	//	test.automatedRPNTest();
 		
-	}
-
+	//}
 }

@@ -1,21 +1,24 @@
 
 /**
- * Lab 1
+ * List class for LinkNode class and Stack class
  * 
- * @author AC12001 Team
- * @version January 2013
+ * @author Alfie Hippisley/ AC12001 Team
+ * @version 28/01/2018
  */
+
 public class List 
 {
-    private ListNode head;
+	// Instance variables (Renamed head to top because this is being used in the context of a stack)
+    private ListNode top;
     
     /**
      * Constructor for objects of class List
-     * Create a head
+     * Create a head for the linked list
      */
+    
     public List()
     {
-        head = null;
+        top = null;
     }
 
      /**
@@ -24,15 +27,21 @@ public class List
      * @param  data to add
      * @return nothing    
      */
+    
     public void addToList(int givenNumber)
     {
+    	// Create new node
         ListNode  marker;
         ListNode  newOne;
         
-        newOne = new ListNode(givenNumber);        
-        newOne.setNext(head);
+        // Store the number being passed in the new node
+        newOne = new ListNode(givenNumber);     
         
-        head = newOne;
+        // Set the next reference to the top of the list
+        newOne.setNext(top);
+        
+        // Set the top of the list to the new node
+        top = newOne;
     }
  
     /**
@@ -41,18 +50,24 @@ public class List
      * @param  none
      * @return nothing    
      */
+    
      public void printList()
      {
         ListNode marker;
 
-        if (head == null)
+        // If the top of the list is null we can assume the list empty
+        if (top == null)
         {
         	System.out.println("The list is empty.");  
         }
+        
+        // If not then there is contents to show
         else
         {
-	        System.out.println("The list contains:");    
-	        for (marker = head; marker != null; marker=marker.getNext())
+	        System.out.println("The list contains:");  
+
+	        // Loop showing content until no more nodes
+	        for (marker = top; marker != null; marker=marker.getNext())
 	        {
 	              System.out.println(marker.printInfo());  
 	        }
@@ -62,14 +77,15 @@ public class List
    /**
      * Find a node
      * 
-     * @param  Student to find
+     * @param  Number to find
      * @return node if found, else null
      */
      public ListNode findInList(int storedNumber)
     {
         ListNode marker, foundNode=null;
         
-        for (marker = head; marker != null && foundNode == null; marker=marker.getNext())
+        // Go though the list checking if the number has been found
+        for (marker = top; marker != null && foundNode == null; marker=marker.getNext())
         {
             if (storedNumber == marker.getStoredNumber())
             {
@@ -77,7 +93,8 @@ public class List
             }
         }
 
-         return foundNode;  
+        // Return the foundNode
+        return foundNode;  
     }
      
     /** 
@@ -88,19 +105,23 @@ public class List
      */
      
     public ListNode deleteFromStart() {
-    	// TODO Add empty check
+    	
     	boolean emptyStack = false;
     	
-    	ListNode nodeToDelete = head;
+    	ListNode nodeToDelete = top;
     	
+    	// Check if stack empty first
     	emptyStack = checkIfEmpty(emptyStack);
     	
+    	// If true nothing to delete
     	if(emptyStack == true) {
     		return null;
     	}
+    	
+    	// Else, go delete by removing reference, however we return the node so we can extract the data for the RPN
     	else {
     		nodeToDelete.getNext();
-    		head = nodeToDelete.getNext();
+    		top = nodeToDelete.getNext();
     		return nodeToDelete;
     	}
     }
@@ -114,15 +135,20 @@ public class List
     
     public boolean checkIfEmpty(boolean empty) {
     	
-    	ListNode marker = head;
+    	// Start at the top of the list
+    	ListNode marker = top;
     	
+    	// If nothing in the list next its empty
     	if (marker == null){
     		empty = true;
     	}
+    	
+    	// Else, the list is not empty
     	else {
     		empty = false;
     	}
     	
+    	// Return the state of the list
     	return empty;
     }
 }

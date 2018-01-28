@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class RPNCalculator {
 
+	// Instance variable
 	private Stack stackOne;
 	
 	/**
@@ -12,6 +13,7 @@ public class RPNCalculator {
 	 */
 	
 	public void initialiseStack(){
+		// New stack object
 		stackOne = new Stack();
 	}
 	
@@ -24,10 +26,16 @@ public class RPNCalculator {
 	
 	public String getString(String userPrompt)
     {
+		// Open new scanner object
     	Scanner scanner1 = new Scanner(System.in);
+    	
+    	// Show user prompt
     	System.out.println(userPrompt);
+    	
+    	// Get user input
     	String userInput = scanner1.nextLine();
-    	scanner1.close();
+    	
+    	// Return the user input
 		return userInput;
     }
 	
@@ -39,10 +47,14 @@ public class RPNCalculator {
 	 */
 	
 	public String[] convertString(String userInput,String delimiter) {
+		
+		// Create array
 		String [] arrayOfInput;
 		
+		// Fill the array with the contents from the spilt string
 		arrayOfInput = userInput.split(delimiter);
 		
+		// Return the array filled with the split contents
 		return arrayOfInput;
 	}
 	
@@ -55,14 +67,27 @@ public class RPNCalculator {
 	
 	public void processString() {
 		
+		// Header to separate calculations from menu
+		System.out.println("--------------------------------------------------------------------------------");
+		
+		// Send user prompt to 'getString' and store the response as 'userInput'
 		String userInput = getString("Please enter the RPN Calculation to be solved :");
-		String delimiter = ",";
-		String [] arrayOfInput = convertString(userInput,delimiter);
-		int result = 0;
-		int number1;
-		int number2;
 	
+		// Set what will be used to split the string
+		String delimiter = ",";
+		
+		// Set fill the array via 'converString' passing the user input and the delimiter
+		String [] arrayOfInput = convertString(userInput,delimiter);
+		
+		
+		int result = 0; // Store result
+		int number1;	// Store the first number pop
+		int number2;	// Store the second number pop
+	
+		// Loop for all tokens in array
 		for(int index = 0; index < arrayOfInput.length; index++) {
+			
+			// Check if number or operator
 			if(arrayOfInput[index].equals("+")){
 				// Get numbers
 				number1 = stackOne.pop();
@@ -79,7 +104,7 @@ public class RPNCalculator {
 				number2 = stackOne.pop();
 				
 				// Perform calculation
-				result = number1 - number2;
+				result = number2 - number1;
 				stackOne.push(result);
 			}
 			
@@ -99,14 +124,18 @@ public class RPNCalculator {
 				int number = Integer.parseInt(arrayOfInput[index]);
 				stackOne.push(number);
 			}
+
 		}
 		
+		// Store the final result
 		int finalResult = stackOne.pop();
 		
+		// Show the final result
 		System.out.println("The final result from the calculation is : " + finalResult);
 	}
 	
 	public void displayStack() {
+		// Testing purposes, show stack
 		stackOne.displayStack();
 	}
 }

@@ -2,21 +2,23 @@
 /**
  * Performs actions on the list's nodes
  * 
- * @author AC12001 Team
- * @version January 2013
+ * @author Alfie Hippisley/ AC12001 Team
+ * @version 28/01/2018
  */
+
 public class ListNode    
 {
-    // instance variables
+    // Instance variables
     private int storedNumber;
     private ListNode next;
 
     /**
-     * Constructor for objects of class List
+     * Constructor for ListNode class
+     * @param storedNumber for node
      */
+    
     public ListNode(int storedNumber)
     {
-        // initialise instance variables
         this.storedNumber = storedNumber;
         this.next = null;
     }
@@ -27,6 +29,7 @@ public class ListNode
      * @param  none
      * @return the next node
      */
+    
     public ListNode getNext()
     {
         return next;
@@ -64,6 +67,7 @@ public class ListNode
     {
         String info;
         
+        // Display the stored number of the node
         info = "Number being stored is " + storedNumber;
         
         return info;

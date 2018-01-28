@@ -1,10 +1,17 @@
+/**
+ * Stack class for LinkNode Class and List Class
+ * 
+ * @author Alfie Hippisley
+ * @version 28/01/2018
+ */
 
 public class Stack {
 	
+	// Instance variables
 	private List listOne;
 	
 	/**
-	 * Get the list/stack ready for use
+	 * Constructor to get the List class ready for use
 	 * 
 	 * @param none
 	 * @return none
@@ -24,6 +31,7 @@ public class Stack {
 	
 	public void push(int data) 
 	{
+		// Add the data to list
 		listOne.addToList(data);
 	}
 	
@@ -36,9 +44,13 @@ public class Stack {
 	
 	public int pop() 
 	{
+		// Before the data is lost take the data inside the node
 		ListNode nodeToDelete = listOne.deleteFromStart();
+		
+		// Store the data inside 'number'
 		int number = nodeToDelete.getStoredNumber();
 		
+		// Return that data
 		return number;
 	}
 	
@@ -51,10 +63,13 @@ public class Stack {
 	
 	public void isStackEmpty() 
 	{
+		// If stack is empty this will become true
 		boolean listState = false;
 		
+		// Call checkIfEmpty from List class and assign the return value to 'listState'
 		listState = listOne.checkIfEmpty(listState);
 		
+		// Show message accordingly
 		if(listState == false) {
 			System.out.println("\nThe stack contains data.");
 		}
@@ -65,6 +80,7 @@ public class Stack {
 	
 	public void displayStack() 
 	{
+		// Call printList to display the entire stack contents
 		listOne.printList();
 	}
 
