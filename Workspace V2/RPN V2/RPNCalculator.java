@@ -42,11 +42,6 @@ public class RPNCalculator {
 		String [] arrayOfInput;
 		
 		arrayOfInput = userInput.split(delimiter);
-		for(int i =0; i < arrayOfInput.length ; i++)
-		{
-			// Convert a String to an integer
-			i = Integer.parseInt(arrayOfInput[i]);
-		}
 		
 		return arrayOfInput;
 	}
@@ -63,17 +58,52 @@ public class RPNCalculator {
 		String userInput = getString("Please enter the RPN Calculation to be solved :");
 		String delimiter = ",";
 		String [] arrayOfInput = convertString(userInput,delimiter);
-		
-		// Displays array
+		int result = 0;
+		int number1;
+		int number2;
+	
 		for(int index = 0; index < arrayOfInput.length; index++) {
-			if(arrayOfInput[index] == ("-") || arrayOfInput[index] == ("-") || arrayOfInput[index] == ("-")){
-				System.out.println("Char detect");
+			if(arrayOfInput[index].equals("+")){
+				// Get numbers
+				number1 = stackOne.pop();
+				number2 = stackOne.pop();
+				
+				// Perform calculation
+				result = number1 + number2;
+				stackOne.push(result);
 			}
+			
+			else if(arrayOfInput[index].equals("-")){
+				// Get numbers
+				number1 = stackOne.pop();
+				number2 = stackOne.pop();
+				
+				// Perform calculation
+				result = number1 - number2;
+				stackOne.push(result);
+			}
+			
+			else if(arrayOfInput[index].equals("*")){
+				// Get numbers
+				number1 = stackOne.pop();
+				number2 = stackOne.pop();
+				
+				// Perform calculation
+				result = number1 * number2;
+				stackOne.push(result);
+			}
+			
 			else {
+				// Must be a number assuming a valid input
+				// TODO Validate this input
 				int number = Integer.parseInt(arrayOfInput[index]);
 				stackOne.push(number);
 			}
 		}
+		
+		int finalResult = stackOne.pop();
+		
+		System.out.println("The final result from the calculation is : " + finalResult);
 	}
 	
 	public void displayStack() {

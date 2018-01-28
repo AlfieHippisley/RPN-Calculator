@@ -31,12 +31,15 @@ public class Stack {
 	 * Pop data from the top of the stack
 	 * 
 	 * @param none
-	 * @return none
+	 * @return number that was stored
 	 */
 	
-	public void pop() 
+	public int pop() 
 	{
-		listOne.deleteFromStart();
+		ListNode nodeToDelete = listOne.deleteFromStart();
+		int number = nodeToDelete.getStoredNumber();
+		
+		return number;
 	}
 	
 	/**
