@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class RPNCalculator {
+
+	private Stack stackOne;
+	
+	/**
+	 * Get the stack ready for use
+	 * 
+	 * @param none
+	 * @return none
+	 */
+	
+	public void initialiseStack(){
+		stackOne = new Stack();
+	}
+	
+	/**
+	 * Get the string from the user
+	 * 
+	 * @param none
+	 * @return user input
+	 */
+	
+	public String getString()
+    {
+    	Scanner scanner1 = new Scanner(System.in);
+    	System.out.println("Please enter the RPN calulation :");
+    	String userInput = scanner1.nextLine();
+    	scanner1.close();
+		return userInput;
+    }
+	
+	/**
+	 * Process the string given by the user
+	 * 
+	 * @param none
+	 * @return none
+	 */
+	
+	public void processString() {
+		
+	}
+}

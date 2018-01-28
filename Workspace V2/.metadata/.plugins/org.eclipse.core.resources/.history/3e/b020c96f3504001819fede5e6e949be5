@@ -1,0 +1,43 @@
+
+public class Tester {
+	
+	Stack stackOne;
+	
+	public void initialiseStack() {
+		stackOne = new Stack();
+	}
+	
+	public void automatedStackTest() {
+		stackOne.initialiseStack();
+		
+		stackOne.push(1);
+		stackOne.displayStack();
+		
+		stackOne.push(2);
+		stackOne.displayStack();
+		
+		stackOne.push(3);
+		stackOne.displayStack();
+		
+		stackOne.isStackEmpty();
+		
+		stackOne.pop();
+		stackOne.displayStack();
+		stackOne.pop();
+		stackOne.displayStack();
+		stackOne.pop();
+		stackOne.displayStack();
+		
+		stackOne.isStackEmpty();
+		
+	}
+
+	public static void main(String[] args) {
+		Tester test = new Tester();
+		
+		test.initialiseStack();
+		test.automatedStackTest();
+
+	}
+
+}

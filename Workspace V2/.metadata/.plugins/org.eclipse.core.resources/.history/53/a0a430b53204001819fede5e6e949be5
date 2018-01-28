@@ -1,0 +1,37 @@
+
+public class Stack {
+	
+	private List listOne;
+	
+	/**
+	 * 
+	 * Get the list/stack ready for use
+	 * 
+	 * @param none
+	 * @return none
+	 */
+	
+	public void initialiseStack(){
+		listOne = new List();
+	}
+	
+	/**
+	 * 
+	 * Add data to the stack
+	 * 
+	 * @param data to be added to stack
+	 */
+	
+	public void push(int data) {
+		listOne.addToList(data);
+	}
+	
+	public void pop() {
+		
+	}
+	
+	public void isStackEmpty() {
+		
+	}
+
+}

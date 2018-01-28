@@ -1,0 +1,30 @@
+
+public class Tester {
+	
+	Stack stackOne;
+	
+	public void initialiseStack() {
+		stackOne = new Stack();
+	}
+	
+	public void automatedTest() {
+		stackOne.initialiseStack();
+		
+		stackOne.push(1);
+		stackOne.displayStack();
+		
+		stackOne.push(2);
+		stackOne.displayStack();
+		
+		stackOne.push(3);
+		stackOne.displayStack();
+		
+		stackOne.isStackEmpty();
+	}
+
+	public static void main(String[] args) {
+	
+
+	}
+
+}

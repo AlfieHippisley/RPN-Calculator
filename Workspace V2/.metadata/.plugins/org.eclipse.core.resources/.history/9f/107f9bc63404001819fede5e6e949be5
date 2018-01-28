@@ -1,0 +1,19 @@
+
+public class Tester {
+	
+	Stack stackOne;
+	
+	public void initialiseStack() {
+		stackOne = new Stack();
+	}
+	
+	public void automatedTest() {
+		
+	}
+
+	public static void main(String[] args) {
+	
+
+	}
+
+}
